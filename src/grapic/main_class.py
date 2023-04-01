@@ -12,6 +12,15 @@ class Grapic:
 			cls._singleton = super().__new__(cls)
 		return cls._singleton
 
+
+	@classmethod
+	def singleton(cls):
+		"""
+		Returns the singleton instance of the class.
+		"""
+		return cls._singleton
+
+
 	def __init__(self, title: str, dimension_x: int, dimension_y: int):
 		"""
 		Creates an instance of the grapic class.

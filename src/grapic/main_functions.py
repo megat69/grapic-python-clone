@@ -18,14 +18,14 @@ def win_display() -> bool:
 	Updates the window, returns whether the user wanted to quit.
 	:return: Whether the user wants to leave the app.
 	"""
-	return Grapic._singleton.win_display()
+	return Grapic.singleton().win_display()
 
 
 def win_clear() -> None:
 	"""
 	Clears the contents of the window and fills the screen with the background color.
 	"""
-	return Grapic._singleton.win_clear()
+	return Grapic.singleton().win_clear()
 
 
 def background_color(r: Union[int, float], g: Union[int, float], b: Union[int, float]) -> None:
@@ -40,7 +40,7 @@ def background_color(r: Union[int, float], g: Union[int, float], b: Union[int, f
 	if all(isinstance(channel, int) for channel in (r, g, b)):
 		# Sets the color if the values are in the correct range
 		if all(0 <= channel <= 255 for channel in (r, g, b)):
-			Grapic._singleton.background_color = [r, g, b]
+			Grapic.singleton().background_color = [r, g, b]
 
 		# Raises an exception if the values are not in the correct range
 		else:
@@ -57,7 +57,7 @@ def background_color(r: Union[int, float], g: Union[int, float], b: Union[int, f
 	elif all(isinstance(channel, float) for channel in (r, g, b)):
 		# Sets the background color to be the integer version of the parameters if the colors are in the correct range
 		if all(0 <= channel <= 1 for channel in (r, g, b)):
-			Grapic._singleton.background_color = [e * 255 for e in (r, g, b)]
+			Grapic.singleton().background_color = [e * 255 for e in (r, g, b)]
 
 		# Raises an exception if the values are not in the correct range
 		else:
@@ -92,7 +92,7 @@ def color(r: Union[int, float], g: Union[int, float], b: Union[int, float]) -> N
 	if all(isinstance(channel, int) for channel in (r, g, b)):
 		# Sets the color if the values are in the correct range
 		if all(0 <= channel <= 255 for channel in (r, g, b)):
-			Grapic._singleton.color = [r, g, b]
+			Grapic.singleton().color = [r, g, b]
 
 		# Raises an exception if the values are not in the correct range
 		else:
@@ -109,7 +109,7 @@ def color(r: Union[int, float], g: Union[int, float], b: Union[int, float]) -> N
 	elif all(isinstance(channel, float) for channel in (r, g, b)):
 		# Sets the background color to be the integer version of the parameters if the colors are in the correct range
 		if all(0 <= channel <= 1 for channel in (r, g, b)):
-			Grapic._singleton.color = [e * 255 for e in (r, g, b)]
+			Grapic.singleton().color = [e * 255 for e in (r, g, b)]
 
 		# Raises an exception if the values are not in the correct range
 		else:
