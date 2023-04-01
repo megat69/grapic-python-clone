@@ -17,8 +17,19 @@ class Grapic:
 		Creates an instance of the grapic class.
 		This will contain all the code under the hood to make the library work.
 		"""
-		self.screen = pygame.display.set_mode((dimension_x, dimension_y))
-		pygame.display.set_caption(title)
+		if isinstance(dimension_x, int) and isinstance(dimension_y, int) and dimension_x > 0 and dimension_y > 0:
+			self.screen = pygame.display.set_mode((dimension_x, dimension_y))
+		else:
+			raise TypeError(
+				f"'dimension_x' and 'dimension_y' should be positive integers, got "
+				f"dimension_x = {dimension_x} ({type(dimension_x)}) and "
+				f"dimension_y = {dimension_y} ({type(dimension_y)})."
+			)
+
+		if isinstance(title, str):
+			pygame.display.set_caption(title)
+		else:
+			raise TypeError(f"'title' parameter must be a string, got {title} ({type(title)}).")
 
 		# Defines the current color of the background and foreground
 		self.background_color = [  0,   0,   0]

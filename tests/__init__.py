@@ -1,14 +1,15 @@
 # Imports grapic
-import grapic
+from grapic import *
 
 # Creates a new window
-grapic.win_init("test", 400, 600)
+win_init("test", 400, 600)
+background_color(0.3, 0.2, 1.0)
 
 # Loops until the user wants to stop
 stop = False
 while stop is False:
 	# Clears the screen
-	grapic.win_clear()
+	win_clear()
 
 	# Updates the display and gets whether the user closed the window
-	stop = grapic.win_display()
+	stop = win_display()
