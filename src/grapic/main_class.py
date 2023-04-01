@@ -26,6 +26,8 @@ class Grapic:
 		Creates an instance of the grapic class.
 		This will contain all the code under the hood to make the library work.
 		"""
+		pygame.init()
+
 		if isinstance(dimension_x, int) and isinstance(dimension_y, int) and dimension_x > 0 and dimension_y > 0:
 			self.screen = pygame.display.set_mode((dimension_x, dimension_y))
 		else:
