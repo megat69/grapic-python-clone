@@ -1,4 +1,5 @@
 from typing import Union
+import pygame
 
 from grapic.main_class import Grapic
 
@@ -130,3 +131,11 @@ def color(r: Union[int, float], g: Union[int, float], b: Union[int, float]) -> N
 				f"Color could not be set, incorrect types received.\n"
 				f"r: {r} ({type(r)}), g: {g} ({type(g)}), b: {b} ({type(b)})"
 			)
+
+
+def elapsed_time() -> float:
+	"""
+	Returns the time elapsed since the beginning of the program in seconds.
+	:return: The time elapsed since the start of the program in seconds.
+	"""
+	return pygame.time.get_ticks() / 1000
