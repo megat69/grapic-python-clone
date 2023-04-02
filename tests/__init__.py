@@ -30,5 +30,9 @@ while stop is False:
 			DIMW // 2 + RECTANGLE_SIZE, DIMW // 2 + RECTANGLE_SIZE
 		)
 
+	# Draws a random cross made from lines cuz why the hell not
+	line(0, 0, DIMW, DIMW)
+	line(0, DIMW, DIMW, 0)
+
 	# Updates the display and gets whether the user closed the window
 	stop = win_display()

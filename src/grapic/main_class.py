@@ -97,3 +97,15 @@ class Grapic:
 			self.foreground_color,
 			(x1, y1, abs(x1 - x2), abs(y1 - y2))
 		)
+
+
+	def line(self, x1: int, y1: int, x2: int, y2: int):
+		"""
+		Draws a line from (x1, y1) to (x2, y2).
+		"""
+		pygame.draw.line(
+			self.screen,
+			self.foreground_color,
+			(x1, self._invertY(y1)),
+			(x2, self._invertY(y2))
+		)
