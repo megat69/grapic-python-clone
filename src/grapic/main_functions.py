@@ -160,3 +160,17 @@ def line(x1: int, y1: int, x2: int, y2: int):
 	Draws a line from (x1, y1) to (x2, y2).
 	"""
 	Grapic.singleton().line(x1, y1, x2, y2)
+
+
+def circle(x: int, y: int, radius: int):
+	"""
+	Draws a circle with the given radius at the given coordinates.
+	"""
+	Grapic.singleton().circle(x, y, radius)
+
+
+def circle_fill(x: int, y: int, radius: int):
+	"""
+	Draws a circle filled with the active color with the given radius at the given coordinates.
+	"""
+	Grapic.singleton().circle_fill(x, y, radius)

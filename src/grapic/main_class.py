@@ -109,3 +109,28 @@ class Grapic:
 			(x1, self._invertY(y1)),
 			(x2, self._invertY(y2))
 		)
+
+
+	def circle(self, x: int, y: int, radius: int):
+		"""
+		Draws a circle with the given radius at the given coordinates.
+		"""
+		pygame.draw.circle(
+			self.screen,
+			self.foreground_color,
+			(x, self._invertY(y)),
+			radius,
+			1
+		)
+
+
+	def circle_fill(self, x: int, y: int, radius: int):
+		"""
+		Draws a circle filled with the active color with the given radius at the given coordinates.
+		"""
+		pygame.draw.circle(
+			self.screen,
+			self.foreground_color,
+			(x, self._invertY(y)),
+			radius
+		)
