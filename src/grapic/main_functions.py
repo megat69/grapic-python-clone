@@ -93,7 +93,7 @@ def color(r: Union[int, float], g: Union[int, float], b: Union[int, float]) -> N
 	if all(isinstance(channel, int) for channel in (r, g, b)):
 		# Sets the color if the values are in the correct range
 		if all(0 <= channel <= 255 for channel in (r, g, b)):
-			Grapic.singleton().color = [r, g, b]
+			Grapic.singleton().foreground_color = [r, g, b]
 
 		# Raises an exception if the values are not in the correct range
 		else:
@@ -110,7 +110,7 @@ def color(r: Union[int, float], g: Union[int, float], b: Union[int, float]) -> N
 	elif all(isinstance(channel, float) for channel in (r, g, b)):
 		# Sets the background color to be the integer version of the parameters if the colors are in the correct range
 		if all(0 <= channel <= 1 for channel in (r, g, b)):
-			Grapic.singleton().color = [e * 255 for e in (r, g, b)]
+			Grapic.singleton().foreground_color = [e * 255 for e in (r, g, b)]
 
 		# Raises an exception if the values are not in the correct range
 		else:
@@ -139,3 +139,10 @@ def elapsed_time() -> float:
 	:return: The time elapsed since the start of the program in seconds.
 	"""
 	return pygame.time.get_ticks() / 1000
+
+
+def rectangle(x1: int, y1: int, x2: int, y2: int):
+	"""
+	Draws a rectangle at the given coordinates.
+	"""
+	Grapic.singleton().rectangle(x1, y1, x2, y2)

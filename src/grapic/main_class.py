@@ -29,7 +29,8 @@ class Grapic:
 		pygame.init()
 
 		if isinstance(dimension_x, int) and isinstance(dimension_y, int) and dimension_x > 0 and dimension_y > 0:
-			self.screen = pygame.display.set_mode((dimension_x, dimension_y))
+			self.window_size = (dimension_x, dimension_y)
+			self.screen = pygame.display.set_mode(self.window_size)
 		else:
 			raise TypeError(
 				f"'dimension_x' and 'dimension_y' should be positive integers, got "
@@ -45,6 +46,14 @@ class Grapic:
 		# Defines the current color of the background and foreground
 		self.background_color = [  0,   0,   0]
 		self.foreground_color = [255, 255, 255]
+
+
+	def _invertY(self, val: int) -> int:
+		"""
+		Turns the coordinate system into a y+ coordinate system
+		:param val: A y value to convert.
+		"""
+		return self.window_size[1] - val
 
 
 	def win_display(self) -> bool:
@@ -64,3 +73,35 @@ class Grapic:
 		Clears the contents of the window and fills the screen with the background color.
 		"""
 		self.screen.fill(self.background_color)
+
+
+	def rectangle(self, x1: int, y1: int, x2: int, y2: int):
+		"""
+		Draws a rectangle at the given coordinates.
+		"""
+		y1 = self._invertY(y1)
+		y2 = self._invertY(y2)
+		pygame.draw.line(
+			self.screen,
+			self.foreground_color,
+			(x1, y1),
+			(x2, y1)
+		)
+		pygame.draw.line(
+			self.screen,
+			self.foreground_color,
+			(x1, y1),
+			(x1, y2)
+		)
+		pygame.draw.line(
+			self.screen,
+			self.foreground_color,
+			(x2, y1),
+			(x2, y2)
+		)
+		pygame.draw.line(
+			self.screen,
+			self.foreground_color,
+			(x2, y2),
+			(x1, y2)
+		)
