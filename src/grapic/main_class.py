@@ -79,29 +79,21 @@ class Grapic:
 		"""
 		Draws a rectangle at the given coordinates.
 		"""
-		y1 = self._invertY(y1)
-		y2 = self._invertY(y2)
-		pygame.draw.line(
+
+		pygame.draw.rect(
 			self.screen,
 			self.foreground_color,
-			(x1, y1),
-			(x2, y1)
+			(x1, y1, abs(x1 - x2), abs(y1 - y2)),
+			1
 		)
-		pygame.draw.line(
+
+
+	def rectangle_fill(self, x1: int, y1: int, x2: int, y2: int):
+		"""
+		Draws a rectangle filled with the active color at the given coordinates.
+		"""
+		pygame.draw.rect(
 			self.screen,
 			self.foreground_color,
-			(x1, y1),
-			(x1, y2)
-		)
-		pygame.draw.line(
-			self.screen,
-			self.foreground_color,
-			(x2, y1),
-			(x2, y2)
-		)
-		pygame.draw.line(
-			self.screen,
-			self.foreground_color,
-			(x2, y2),
-			(x1, y2)
+			(x1, y1, abs(x1 - x2), abs(y1 - y2))
 		)

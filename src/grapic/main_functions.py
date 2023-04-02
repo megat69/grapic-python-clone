@@ -146,3 +146,10 @@ def rectangle(x1: int, y1: int, x2: int, y2: int):
 	Draws a rectangle at the given coordinates.
 	"""
 	Grapic.singleton().rectangle(x1, y1, x2, y2)
+
+
+def rectangle_fill(x1: int, y1: int, x2: int, y2: int):
+	"""
+	Draws a rectangle filled with the active color at the given coordinates.
+	"""
+	Grapic.singleton().rectangle_fill(x1, y1, x2, y2)
